@@ -1,0 +1,30 @@
+{% extends "layouts/layout.html" %}
+
+{% block title %}Registro{% endblock title %}
+
+{% block content %}
+
+    <form action="" method="POST">
+
+        {% csrf_token %}
+        <h2>Registrate</h2>
+
+        {% for i in form %}
+            <label>{{i.label}}</label>
+            {{i}}
+        {% endfor %}
+        <input class="registrar" type="submit" value="Registrarse"></input>
+        
+    </form>
+
+{% endblock content %}
+
+{% block info %}
+<div class="container-registro">
+    <div class="welcome-sign-up welcome">
+        <h3>¡Hola!</h3>
+        <p>Regístrese con sus datos personales para usar todas las funciones del sitio</p>
+        <a href="{% url "login" %}" class="button" id="btn-sign-in">Iniciar Sesión</a>
+    </div>
+</div>
+{% endblock info %}

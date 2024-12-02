@@ -1,0 +1,35 @@
+{% extends "layouts/layout.html" %}
+
+{% block title %}Login{% endblock title %}
+
+{% block content %}
+    <form action="" method="POST">    
+        {% csrf_token %}
+        <h2>Iniciar Sesión</h2>
+        {% if messages %}
+            {% for i in messages %}
+                <div class="alert-warning">
+                    {{i}}
+                </div>
+            {% endfor %}
+        {% endif %}
+        <span>Use su usuario y contraseña</span>
+        <label for="username">Nombre del usuario:</label>
+        <input type="text" name="username">
+        <label for="password">contraseña:</label>
+        <input type="password" name="password">
+        <input class="iniciar" type="submit" value="Enviar">
+    </form>
+
+{% endblock content %}
+
+{% block info %}
+    <div class="container-welcome">
+        <div class="welcome-sign-up welcome">
+            <h3>¡Bienvenido!</h3>
+            <p>Ingrese sus datos personales para usar todas las funciones del sitio</p>
+            <a href="{% url "registro" %}" class="button" id="btn-sign-up">Registrarse</a>
+        </div>
+    </div>
+{% endblock info %}
+
